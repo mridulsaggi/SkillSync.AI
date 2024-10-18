@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
 
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body className={`bg-gradient-to-b from-black to-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}>
          <Navbar/>
           {children}
         </body>
