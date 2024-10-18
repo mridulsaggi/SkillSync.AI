@@ -8,6 +8,7 @@ import { chatSession } from "../../util/generateQuestions"
 import { Loader2 } from 'lucide-react'
 
 import { Skeleton } from "../../components/ui/skeleton"
+import { useUser } from '@clerk/nextjs'
 
 
 const page = () => {
@@ -41,7 +42,15 @@ const page = () => {
     setcontent(result)
     setloading(false)
   }
-  const username = 'Mridul'
+  const { isLoaded, isSignedIn, user } = useUser();
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
+
+  if (!isSignedIn) {
+    return <p>Please sign in to continue.</p>;
+  }
+  const username=user?.username
   return (
     <>
       <div className='p-5 md:p-10 flex flex-col items-center justify-center'>
