@@ -6,6 +6,8 @@ import { eq } from 'drizzle-orm'
 import Webcam from "react-webcam"
 import { Lightbulb, WebcamIcon } from 'lucide-react'
 import { Button } from '../../../../components/ui/button'
+
+import Link from 'next/link';
 const page = ({ params }) => {
     const [WebcamEnabled, setWebcamEnabled] = useState(false)
     const [interviewData, setinterviewData] = useState("")
@@ -53,9 +55,10 @@ const page = ({ params }) => {
                     }
                 </div>
             </div>
-            <Button className="m-4 absolute right-[5rem] bottom-[4rem]">Start Interview</Button>
-
-        </div>
+            <Link href={`/dashboard/interview/${params.interviewId}/start`}>
+                <Button className="m-4 absolute right-[5rem] bottom-[4rem]">Start Interview</Button>
+            </Link>
+        </div >
     )
 }
 

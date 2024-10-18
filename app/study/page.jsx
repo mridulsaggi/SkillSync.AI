@@ -1,11 +1,15 @@
-"use client";
-import React, { useState } from 'react';
-import { Button } from '../../components/ui/button';
-import { Input } from '../../components/ui/input';
-import { Textarea } from '../../components/ui/textarea';
-import { chatSession } from "../../util/generateQuestions";
-import { Loader2 } from 'lucide-react';
-import { Skeleton } from "../../components/ui/skeleton";
+"use client"
+import React, { useState } from 'react'
+import { Button } from '../../components/ui/button'
+import { Input } from '../../components/ui/input'
+import { Textarea } from '../../components/ui/textarea'
+
+import { chatSession } from "../../util/generateQuestions"
+import { Loader2 } from 'lucide-react'
+
+import { Skeleton } from "../../components/ui/skeleton"
+import { useUser } from '@clerk/nextjs'
+
 
 const Page = () => {
   const [topic, setTopic] = useState("");
@@ -29,22 +33,16 @@ const Page = () => {
     If the response token is near 8000, limit the response to 1 section lesser or reduce some description but return such that the response returned is in correct JSON format
   `;
 
-  const submitHandler = async () => {
-    setLoading(true);
-    try {
-      const res = await chatSession.sendMessage(prompt2);
-      const temp = await res.response.text();
-      const result = JSON.parse(temp);
-      console.log(result);
-      setContent(result);
-    } catch (error) {
-      console.error("Error fetching content:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const username = 'Mridul';
+  const submithandler = async (e) => {
+    setloading(true)
+    const res = await chatSession.sendMessage(prompt2)
+    const temp = res.response.text()
+    const result = JSON.parse(temp)
+    console.log(result)
+    setcontent(result)
+    setloading(false)
+  }
+  const username = 'Mridul'
   return (
     <div className='p-5 md:p-10 flex flex-col items-center justify-center bg-gray-900 min-h-screen'>
       <div className='flex flex-col items-center justify-center p-10'>
