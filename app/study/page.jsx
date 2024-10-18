@@ -13,9 +13,9 @@ import { useUser } from '@clerk/nextjs'
 
 const Page = () => {
   const [topic, setTopic] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [content, setContent] = useState({});
-
+  const [loading, setloading] = useState(false);
+  const [content, setcontent] = useState({});
+  
   const prompt2 = `
     You are an expert on ${topic}. Your job is to teach the given sub-topic: ${topic} in detail in JSON format with the following structure:
     {
@@ -42,7 +42,15 @@ const Page = () => {
     setcontent(result)
     setloading(false)
   }
-  const username = 'Mridul'
+  const { isLoaded, isSignedIn, user } = useUser();
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
+
+  if (!isSignedIn) {
+    return <p>Please sign in to continue.</p>;
+  }
+  const username=user?.username
   return (
     <div className='p-5 md:p-10 flex flex-col items-center justify-center bg-gray-900 min-h-screen'>
       <div className='flex flex-col items-center justify-center p-10'>
@@ -62,7 +70,7 @@ const Page = () => {
           placeholder="Enter the topic you want to study today"
           className="bg-gray-800 border border-gray-700 text-white placeholder-gray-400"
         />
-        <Button onClick={submitHandler} disabled={loading} className="bg-blue-600 hover:bg-blue-500 transition-colors">
+        <Button onClick={submithandler} disabled={loading} className="bg-blue-600 hover:bg-blue-500 transition-colors">
           {loading ? (
             <>
               <Loader2 className='animate-spin' /> Generating from AI

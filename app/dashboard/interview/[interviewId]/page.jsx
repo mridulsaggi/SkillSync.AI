@@ -26,7 +26,7 @@ const page = ({ params }) => {
     }
 
     return (
-        <div className='p-5'>
+        <div className='p-5 text-white'>
             <h1 className='text-3xl text-center my-[2rem]'>Lets Get Started!</h1>
             <div className='relative grid grid-cols-1 md:grid-cols-2 gap-5'>
                 <div className="flex flex-col items-center rounded-lg border p-5">
@@ -35,12 +35,12 @@ const page = ({ params }) => {
                         <div className='text-xl my-2 flex gap-2'><strong>Tech Stack:</strong>{interviewData.jobDescription}</div>
                         <div className='text-xl my-2 flex gap-2'><strong>Years of Experience:</strong>{interviewData.JobExperience}</div>
                     </div>
-                    <div className='mt-3 rounded-lg border flex flex-col w-full p-2 bg-[#ffff93]'>
+                    <div className='mt-3 rounded-lg border flex flex-col w-full p-2 bg-[#ffffc4]'>
                         <div>
-                            <Lightbulb />
+                            <div className='p-1 bg-black rounded-full h-[2rem] w-[2rem]'><Lightbulb /></div>
                             <p className='font-semibold text-[#e5e535]'>Information</p>
                         </div>
-                        <div>Please enable the camera and microphone for AI generated intterview. The interview will consist of 5 questions and will check your theoretical knowledge on the core topics. After the test, you will recieve a detailed analysis of your Interview. All the best!!</div>
+                        <div className='text-black'>Please enable the camera and microphone for AI generated intterview. The interview will consist of 5 questions and will check your theoretical knowledge on the core topics. After the test, you will recieve a detailed analysis of your Interview. All the best!!</div>
                     </div>
                 </div>
                 <div className='rounded-lg border p-5'>

@@ -55,10 +55,10 @@ const page = ({ params }) => {
                 <>
                     <div className='grid gap-[2rem] p-2 grid-cols-1 md:grid-cols-2'>
                         <div className='p-5 my-[3rem] border rounded-lg'>
-                            <div className='m-[2rem] grid grid-cols-3 md:grid-cols-5 gap-4'>
+                            <div className='m-[2rem] text-white grid grid-cols-3 md:grid-cols-5 gap-4'>
                                 {questions.length > 0 ? (
                                     questions.map((e, idx) => (
-                                        <div key={idx} className={`rounded-lg ${active == idx ? "bg-primary" : "bg-[#bdbdbd]"}  p-3`}>
+                                        <div key={idx} className={`rounded-lg ${active == idx ? "bg-primary" : "bg-[#bdbdbd]"}  text-white  p-3`}>
                                             Question {idx + 1}
                                         </div>
                                     ))
@@ -66,7 +66,7 @@ const page = ({ params }) => {
                                     <p>Fetching questions...</p>
                                 )}
                             </div>
-                            <div className='border rounded-lg p-5'>
+                            <div className='border rounded-lg p-5 text-white'>
                                 {questions[active]?.question}
                             </div>
                             <div className='bg-[#aeaeff] my-[2rem] border rounded-lg p-5'>
@@ -81,7 +81,7 @@ const page = ({ params }) => {
                             </Button>
                         </div>
                         {/* <h1>Recording: {isRecording.toString()}</h1> */}
-                        <div>
+                        <div className='text-white'>
                             {/* <button >
                                 {isRecording ? 'Stop Recording' : 'Start Recording'}
                             </button> */}
