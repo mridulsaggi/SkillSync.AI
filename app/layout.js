@@ -3,10 +3,10 @@ import {
 } from '@clerk/nextjs'
 import localFont from "next/font/local";
 import "./globals.css";
-// import Header from "./dashboard/_compo/Header"
-import Navbar from "./dashboard/_compo/Navbar"
+import { Toaster } from '../components/ui/sonner';  // Toaster component for notifications
+import Navbar from "./dashboard/_compo/Navbar";     // Navbar component
 
-
+// Font setup
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -25,13 +25,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-
     <ClerkProvider>
       <html lang="en">
-
         <body className={`bg-gradient-to-b from-black to-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}>
-         <Navbar/>
+          {/* Navbar component */}
+          <Navbar />
+          
+          {/* Render the children content */}
           {children}
+          
+          {/* Toaster component for notifications */}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
