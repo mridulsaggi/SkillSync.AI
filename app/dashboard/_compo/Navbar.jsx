@@ -14,10 +14,10 @@ const Navbar = () => {
     const navItems = [
         { label: "Home", href: "/" },
         { label: "Dashboard", href: "/dashboard" },
-        { label: "AI Interview", href: "/interview" },
         { label: "RoadMaps", href: "/roadmap" },
         { label: "Study", href: "/study" },
         { label: "Courses", href: "/courses" },
+        { label: "Resume", href: "/resume" },
         { label: "Profile", href: "/userprofile" },
         
     ];
