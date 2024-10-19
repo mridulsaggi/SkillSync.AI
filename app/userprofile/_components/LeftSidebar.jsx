@@ -1,21 +1,29 @@
 "use client"
-import React from 'react';
-
-// Mock data for the user
-const user = {
-  name: "Avaneesh",
-  email: "Ag@example.com",
-  profileImage: "https://via.placeholder.com/150", // Placeholder for profile image
-  languages: ["C++", "Java", "JavaScript"],
-  skills: ["MERN Stack", "AWS", "Docker"],
-  linkedAccounts: [
-    { name: "GitHub", url: "https://github.com" },
-    { name: "HackerRank", url: "https://www.hackerrank.com" },
-    { name: "LeetCode", url: "https://leetcode.com" },
-  ],
-};
+import React, { useEffect, useState } from 'react';
 
 const LeftSidebar = () => {
+  const [user, setUser] = useState(null); // State to store user data
+
+  // Function to fetch user data from the API
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/users/1202');
+      const data = await response.json();
+      setUser(data); // Update state with fetched user data
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData(); // Fetch user data on component mount
+  }, []);
+
+  // Render loading state if user data is not yet fetched
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="bg-gray-800 text-white w-full md:w-1/3 lg:w-1/4 p-6 rounded-lg shadow-lg mr-2">
       <div className="flex flex-col items-center mb-6">

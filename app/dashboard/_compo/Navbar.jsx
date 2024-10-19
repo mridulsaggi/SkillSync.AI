@@ -18,6 +18,7 @@ const Navbar = () => {
        { label: "Resume", href: "/resume" },
         { label: "Study", href: "/study" },
         { label: "Courses", href: "/courses" },
+        // { label: "Resume", href: "/resume" },
         { label: "Profile", href: "/userprofile" },
         
     ];
