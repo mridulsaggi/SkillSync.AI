@@ -20,7 +20,7 @@ const page = ({ params }) => {
     const getInterviewDetails = async () => {
         setloading(true)
         const result = await db.select().from(MockInterview).where(eq(MockInterview.mockId, params.interviewId))
-        console.log("Questions from db", result[0])
+        // console.log("Questions from db", result[0])
         setinterviewData(result[0])
         setloading(false)
     }
