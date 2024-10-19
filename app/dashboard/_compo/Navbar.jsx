@@ -15,6 +15,7 @@ const Navbar = () => {
         { label: "Home", href: "/" },
         { label: "Dashboard", href: "/dashboard" },
        { label: "RoadMaps", href: "/roadmap" },
+       { label: "Resume", href: "/resume" },
         { label: "Study", href: "/study" },
         { label: "Courses", href: "/courses" },
         { label: "Profile", href: "/userprofile" },
